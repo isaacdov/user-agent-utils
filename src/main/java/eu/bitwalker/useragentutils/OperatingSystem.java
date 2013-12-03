@@ -51,27 +51,49 @@ public enum OperatingSystem {
 	/**
 	 * Windows Mobile / Windows CE. Exact version unknown.
 	 */
-	WINDOWS(		Manufacturer.MICROSOFT,null,1, "Windows", new String[] { "Windows" }, new String[] { "Palm" }, DeviceType.COMPUTER, null ), // catch the rest of older Windows systems (95, NT,...)
-		WINDOWS_8(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,22, "Windows 8", new String[] { "Windows NT 6.2" }, null, DeviceType.COMPUTER, null ), // before Win, yes, Windows 7 is called 6.1 LOL
-		WINDOWS_7(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,21, "Windows 7", new String[] { "Windows NT 6.1" }, null, DeviceType.COMPUTER, null ), // before Win, yes, Windows 7 is called 6.1 LOL
-		WINDOWS_VISTA(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,20, "Windows Vista", new String[] { "Windows NT 6" }, null, DeviceType.COMPUTER, null ), // before Win
-		WINDOWS_2000(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,15, "Windows 2000", new String[] { "Windows NT 5.0" }, null, DeviceType.COMPUTER, null ), // before Win
-		WINDOWS_XP(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,10, "Windows XP", new String[] { "Windows NT 5" }, null, DeviceType.COMPUTER, null ), // before Win, 5.1 and 5.2 are basically XP systems
-		WINDOWS_PHONE8(Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 52, "Windows Phone 8", new String[] { "Windows Phone 8" },  null, DeviceType.MOBILE, null ), // before Win
-		WINDOWS_MOBILE7(Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 51, "Windows Phone 7", new String[] { "Windows Phone OS 7" },  null, DeviceType.MOBILE, null ), // should be Windows Phone 7 but to keep it compatible we'll leave the name as is.
-		WINDOWS_MOBILE(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 50, "Windows Mobile", new String[] { "Windows CE" },  null, DeviceType.MOBILE, null ), // before Win
-		WINDOWS_98(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,5, "Windows 98", new String[] { "Windows 98","Win98" },  new String[] { "Palm" }, DeviceType.COMPUTER, null ), // before Win 
+	WINDOWS(		Manufacturer.MICROSOFT,null,1, "Windows", new String[] { "Windows", "WinNT",  "Win95",  "Win32"}, new String[] { "Palm" }, DeviceType.COMPUTER, null ), // catch the rest of older Windows systems (95, NT,...)
+	WINDOWS_81_PRO(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,24, "Windows 8.1 Pro", new String[] { "Windows NT 6.3; WOW64;", "Windows NT 6.3; Win64;" }, null, DeviceType.COMPUTER, null ), // before Win, yes, Windows 8.1 is called 6.3 LOL
+	WINDOWS_81_RT(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,25, "Windows 8.1 RT", new String[] { "Windows NT 6.3; ARM;" }, null, DeviceType.COMPUTER, null ), // before Win, yes, Windows 8.1 is called 6.3 LOL
+	WINDOWS_8 (		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,22, "Windows 8", new String[] { "Windows NT 6.2; WOW64;", "Windows NT 6.2; Win64;" },null, DeviceType.COMPUTER, null ),
+	WINDOWS_RT (	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,23, "Windows RT", new String[] { "Windows NT 6.2; ARM;" },null, DeviceType.TABLET, null ),
+	WINDOWS_7(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,21, "Windows 7", new String[] { "Windows NT 6.1" }, null, DeviceType.COMPUTER, null ), // before Win, yes, Windows 7 is called 6.1 LOL
+	WINDOWS_VISTA(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,20, "Windows Vista", new String[] { "Windows NT 6" }, null, DeviceType.COMPUTER, null ), // before Win
+	WINDOWS_2000(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,15, "Windows 2000", new String[] { "Windows NT 5.0" }, null, DeviceType.COMPUTER, null ), // before Win
+	WINDOWS_XP(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,10, "Windows XP", new String[] { "Windows NT 5" }, null, DeviceType.COMPUTER, null ), // before Win, 5.1 and 5.2 are basically XP systems
+	WINDOWS_PHONE8(Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 52, "Windows Phone 8", new String[] { "Windows Phone 8" },  null, DeviceType.MOBILE, null ), // before Win
+	WINDOWS_MOBILE7(Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 51, "Windows Phone 7", new String[] { "Windows Phone OS 7" },  null, DeviceType.MOBILE, null ), // should be Windows Phone 7 but to keep it compatible we'll leave the name as is.
+	WINDOWS_MOBILE(	Manufacturer.MICROSOFT,OperatingSystem.WINDOWS, 50, "Windows Mobile", new String[] { "Windows CE" },  null, DeviceType.MOBILE, null ), // before Win
+	WINDOWS_98(		Manufacturer.MICROSOFT,OperatingSystem.WINDOWS,5, "Windows 98", new String[] { "Windows 98","Win98" },  new String[] { "Palm" }, DeviceType.COMPUTER, null ), // before Win 
 
 	ANDROID(		Manufacturer.GOOGLE,null, 0, "Android", new String[] { "Android" },  null, DeviceType.MOBILE, null ),
-		/**
-		 * First Android 4 device is the Galaxy Nexus phone. Once there are also Tablets with Android 4 we we will have to find a solution to distinguish between mobile phones and tablets.
-		 */
-		ANDROID4(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 4, "Android 4.x", new String[] { "Android 4","Android-4" },  null, DeviceType.MOBILE, null ),
-		ANDROID4_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 40, "Android 4.x Tablet", new String[] { "Android 4","Android-4" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
-		ANDROID3_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID, 30, "Android 3.x Tablet", new String[] { "Android 3" },  null, DeviceType.TABLET, null ), // as long as there are not Android 3.x phones this should be enough
-		ANDROID2(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 2, "Android 2.x", new String[] { "Android 2" },  null, DeviceType.MOBILE, null ),
-		ANDROID2_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID2, 20, "Android 2.x Tablet", new String[] { "Kindle Fire", "GT-P1000","SCH-I800" },  null, DeviceType.TABLET, null ),
-		ANDROID1(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 1, "Android 1.x", new String[] { "Android 1" },  null, DeviceType.MOBILE, null ),
+	/**
+	 * First Android 4 device is the Galaxy Nexus phone. Once there are also Tablets with Android 4 we we will have to find a solution to distinguish between mobile phones and tablets.
+	 */
+	ANDROID4(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 4, "Android 4.x", new String[] { "Android 4","Android-4" },  null, DeviceType.MOBILE, null ),
+	ANDROID40(		Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 41, "Android 4.0", new String[] { "Android 4.0" },  null, DeviceType.MOBILE, null ),
+	ANDROID41(		Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 42, "Android 4.1", new String[] { "Android 4.1" },  null, DeviceType.MOBILE, null ),
+	ANDROID42(		Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 43, "Android 4.2", new String[] { "Android 4.2" },  null, DeviceType.MOBILE, null ),
+	ANDROID43(		Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 44, "Android 4.3", new String[] { "Android 4.3" },  null, DeviceType.MOBILE, null ),
+	ANDROID44(		Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 45, "Android 4.4", new String[] { "Android 4.4" },  null, DeviceType.MOBILE, null ),
+	ANDROID4_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID4, 40, "Android 4.x Tablet", new String[] { "Android 4","Android-4" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID40_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID40, 410, "Android 4.0 Tablet", new String[] { "Android 4.0" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID41_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID41, 401, "Android 4.1 Tablet", new String[] { "Android 4.1" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID42_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID42, 402, "Android 4.2 Tablet", new String[] { "Android 4.2" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID43_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID42, 403, "Android 4.3 Tablet", new String[] { "Android 4.3" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID44_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID42, 404, "Android 4.4 Tablet", new String[] { "Android 4.4" },   new String[] { "mobile" }, DeviceType.TABLET, null ),
+	ANDROID3_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID, 30, "Android 3.x Tablet", new String[] { "Android 3" },  null, DeviceType.TABLET, null ), // as long as there are not Android 3.x phones this should be enough
+	ANDROID30_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID3_TABLET, 300, "Android 3.0 Tablet", new String[] { "Android 3.0" },  null, DeviceType.TABLET, null ), // as long as there are not Android 3.x phones this should be enough
+	ANDROID31_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID3_TABLET, 301, "Android 3.1 Tablet", new String[] { "Android 3.1" },  null, DeviceType.TABLET, null ), // as long as there are not Android 3.x phones this should be enough
+	ANDROID32_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID3_TABLET, 302, "Android 3.2 Tablet", new String[] { "Android 3.2" },  null, DeviceType.TABLET, null ), // as long as there are not Android 3.x phones this should be enough
+	ANDROID2(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 2, "Android 2.x", new String[] { "Android 2" },  null, DeviceType.MOBILE, null ),
+	ANDROID20(		Manufacturer.GOOGLE,OperatingSystem.ANDROID2, 21, "Android 2.0", new String[] { "Android 2.0", "Android 2.1" },  null, DeviceType.MOBILE, null ),
+	ANDROID22(		Manufacturer.GOOGLE,OperatingSystem.ANDROID2, 22, "Android 2.1", new String[] { "Android 2.2" },  null, DeviceType.MOBILE, null ),
+	ANDROID23(		Manufacturer.GOOGLE,OperatingSystem.ANDROID2, 23, "Android 2.2", new String[] { "Android 2.3" },  null, DeviceType.MOBILE, null ),
+	ANDROID2_TABLET(Manufacturer.GOOGLE,OperatingSystem.ANDROID2, 20, "Android 2.x Tablet", new String[] { "Kindle Fire", "GT-P1000","SCH-I800" },  null, DeviceType.TABLET, null ),
+	ANDROID1(		Manufacturer.GOOGLE,OperatingSystem.ANDROID, 1, "Android 1.x", new String[] { "Android 1" },  null, DeviceType.MOBILE, null ),
+	ANDROID15(		Manufacturer.GOOGLE,OperatingSystem.ANDROID1, 10, "Android 1.5", new String[] { "Android 1.5" },  null, DeviceType.MOBILE, null ),
+	ANDROID16(		Manufacturer.GOOGLE,OperatingSystem.ANDROID1, 11, "Android 1.6", new String[] { "Android 1.6" },  null, DeviceType.MOBILE, null ),
+	
 	
 	/**
 	 * PalmOS, exact version unkown
@@ -83,13 +105,16 @@ public enum OperatingSystem {
 	/**
 	 * iOS4, with the release of the iPhone 4, Apple renamed the OS to iOS.
 	 */	
-	IOS(			Manufacturer.APPLE,null, 2, "iOS", new String[] { "iPhone OS", "like Mac OS X" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
-		iOS6_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 43, "iOS 6 (iPhone)", new String[] { "iPhone OS 6" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
-		iOS5_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 42, "iOS 5 (iPhone)", new String[] { "iPhone OS 5" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
-		iOS4_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 41, "iOS 4 (iPhone)", new String[] { "iPhone OS 4" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
-		MAC_OS_X_IPAD(	Manufacturer.APPLE, OperatingSystem.IOS, 50, "Mac OS X (iPad)", new String[] { "iPad" },  null, DeviceType.TABLET, null ), // before Mac OS X
-		MAC_OS_X_IPHONE(Manufacturer.APPLE, OperatingSystem.IOS, 40, "Mac OS X (iPhone)", new String[] { "iPhone" },  null, DeviceType.MOBILE, null ), // before Mac OS X
-		MAC_OS_X_IPOD(	Manufacturer.APPLE, OperatingSystem.IOS, 30, "Mac OS X (iPod)", new String[] { "iPod" },  null, DeviceType.MOBILE, null ), // before Mac OS X
+	IOS(			Manufacturer.APPLE,null, 2, "iOS", new String[] { "iPhone OS", "like Mac OS X", "iPhone;", "iPad;" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
+	iOS7_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 44, "iOS 7 (iPhone)", new String[] { "iPhone OS 7" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
+	iOS6_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 43, "iOS 6 (iPhone)", new String[] { "iPhone OS 6" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
+	iOS5_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 42, "iOS 5 (iPhone)", new String[] { "iPhone OS 5" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions
+	iOS4_IPHONE(	Manufacturer.APPLE,OperatingSystem.IOS, 41, "iOS 4 (iPhone)", new String[] { "iPhone OS 4" },  null, DeviceType.MOBILE, null ), // before MAC_OS_X_IPHONE for all older versions	
+	MAC_OS_X_IPAD(	Manufacturer.APPLE, OperatingSystem.IOS, 50, "Mac OS X (iPad)", new String[] { "iPad" },  null, DeviceType.TABLET, null ), // before Mac OS X
+	iOS7_IPAD(	Manufacturer.APPLE, OperatingSystem.MAC_OS_X_IPAD, 52, "iOS 7 (iPad)", new String[] { "OS 7" },  null, DeviceType.TABLET, null ), // before Mac OS X
+	iOS6_IPAD(	Manufacturer.APPLE, OperatingSystem.MAC_OS_X_IPAD, 51, "iOS 6 (iPad)", new String[] { "OS 6" },  null, DeviceType.TABLET, null ), // before Mac OS X
+	MAC_OS_X_IPHONE(Manufacturer.APPLE, OperatingSystem.IOS, 40, "Mac OS X (iPhone)", new String[] { "iPhone" },  null, DeviceType.MOBILE, null ), // before Mac OS X
+	MAC_OS_X_IPOD(	Manufacturer.APPLE, OperatingSystem.IOS, 30, "Mac OS X (iPod)", new String[] { "iPod" },  null, DeviceType.MOBILE, null ), // before Mac OS X
 	
 	MAC_OS_X(		Manufacturer.APPLE,null, 10, "Mac OS X", new String[] { "Mac OS X" , "CFNetwork"}, null, DeviceType.COMPUTER, null ), // before Mac	
 
@@ -117,31 +142,31 @@ public enum OperatingSystem {
 	 * Various Linux based operating systems.
 	 */
 	KINDLE(			Manufacturer.AMAZON,null, 1, "Linux (Kindle)", new String[] { "Kindle" }, null, DeviceType.TABLET, null ),	
-		KINDLE3(		Manufacturer.AMAZON,OperatingSystem.KINDLE, 30, "Linux (Kindle 3)", new String[] { "Kindle/3" }, null, DeviceType.TABLET, null ),	
-		KINDLE2(		Manufacturer.AMAZON,OperatingSystem.KINDLE, 20, "Linux (Kindle 2)", new String[] { "Kindle/2" }, null, DeviceType.TABLET, null ),	
-	LINUX(			Manufacturer.OTHER,null, 2, "Linux", new String[] { "Linux" , "CamelHttpStream" }, null, DeviceType.COMPUTER, null ), // CamelHttpStream is being used by Evolution, an email client for Linux
+	KINDLE3(		Manufacturer.AMAZON,OperatingSystem.KINDLE, 30, "Linux (Kindle 3)", new String[] { "Kindle/3" }, null, DeviceType.TABLET, null ),	
+	KINDLE2(		Manufacturer.AMAZON,OperatingSystem.KINDLE, 20, "Linux (Kindle 2)", new String[] { "Kindle/2" }, null, DeviceType.TABLET, null ),	
+	LINUX(			Manufacturer.OTHER,null, 2, "Linux", new String[] { "Linux" , "CamelHttpStream" , "FreeBSD" }, null, DeviceType.COMPUTER, null ), // CamelHttpStream is being used by Evolution, an email client for Linux
 
 	/**
 	 * Other Symbian OS versions
 	 */
 	SYMBIAN(		Manufacturer.SYMBIAN,null, 1, "Symbian OS", new String[] { "Symbian", "Series60"},  null, DeviceType.MOBILE, null ),	
-		/**
-		 * Symbian OS 9.x versions. Being used by Nokia (N71, N73, N81, N82, N91, N92, N95, ...)
-		 */
-		SYMBIAN9(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 20, "Symbian OS 9.x", new String[] {"SymbianOS/9", "Series60/3"},  null, DeviceType.MOBILE, null ),
-		/**
-		 * Symbian OS 8.x versions. Being used by Nokia (6630, 6680, 6681, 6682, N70, N72, N90).
-		 */
-		SYMBIAN8(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 15, "Symbian OS 8.x", new String[] { "SymbianOS/8", "Series60/2.6", "Series60/2.8"},  null, DeviceType.MOBILE, null ),
-		/**
-		 * Symbian OS 7.x versions. Being used by Nokia (3230, 6260, 6600, 6620, 6670, 7610), 
-		 * Panasonic (X700, X800), Samsung (SGH-D720, SGH-D730) and Lenovo (P930). 
-		 */
-		SYMBIAN7(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 10, "Symbian OS 7.x", new String[] { "SymbianOS/7"},  null, DeviceType.MOBILE, null ),
-		/**
-		 * Symbian OS 6.x versions.
-		 */
-		SYMBIAN6(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 5, "Symbian OS 6.x", new String[] { "SymbianOS/6"},  null, DeviceType.MOBILE, null ),
+	/**
+	 * Symbian OS 9.x versions. Being used by Nokia (N71, N73, N81, N82, N91, N92, N95, ...)
+	 */
+	SYMBIAN9(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 20, "Symbian OS 9.x", new String[] {"SymbianOS/9", "Series60/3"},  null, DeviceType.MOBILE, null ),
+	/**
+	 * Symbian OS 8.x versions. Being used by Nokia (6630, 6680, 6681, 6682, N70, N72, N90).
+	 */
+	SYMBIAN8(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 15, "Symbian OS 8.x", new String[] { "SymbianOS/8", "Series60/2.6", "Series60/2.8"},  null, DeviceType.MOBILE, null ),
+	/**
+	 * Symbian OS 7.x versions. Being used by Nokia (3230, 6260, 6600, 6620, 6670, 7610), 
+	 * Panasonic (X700, X800), Samsung (SGH-D720, SGH-D730) and Lenovo (P930). 
+	 */
+	SYMBIAN7(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 10, "Symbian OS 7.x", new String[] { "SymbianOS/7"},  null, DeviceType.MOBILE, null ),
+	/**
+	 * Symbian OS 6.x versions.
+	 */
+	SYMBIAN6(		Manufacturer.SYMBIAN,OperatingSystem.SYMBIAN, 5, "Symbian OS 6.x", new String[] { "SymbianOS/6"},  null, DeviceType.MOBILE, null ),
 	/**
 	 * Nokia's Series 40 operating system. Series 60 (S60) uses the Symbian OS.
 	 */
@@ -159,15 +184,20 @@ public enum OperatingSystem {
 	/**
 	 * BlackBerryOS. The BlackBerryOS exists in different version. How relevant those versions are, is not clear.
 	 */
-	BLACKBERRY(		Manufacturer.BLACKBERRY,null, 1, "BlackBerryOS", new String[] { "BlackBerry" }, null, DeviceType.MOBILE, null ),	
-		BLACKBERRY7(	Manufacturer.BLACKBERRY,OperatingSystem.BLACKBERRY, 7, "BlackBerry 7", new String[] { "Version/7" }, null, DeviceType.MOBILE, null ),	
-		BLACKBERRY6(	Manufacturer.BLACKBERRY,OperatingSystem.BLACKBERRY, 6, "BlackBerry 6", new String[] { "Version/6" }, null, DeviceType.MOBILE, null ),		
+	BLACKBERRY(		Manufacturer.BLACKBERRY,null, 1, "BlackBerryOS", new String[] { "BlackBerry" }, null, DeviceType.MOBILE, null ),		
+	BLACKBERRY7(	Manufacturer.BLACKBERRY,OperatingSystem.BLACKBERRY, 7, "BlackBerry 7", new String[] { "Version/7" }, null, DeviceType.MOBILE, null ),	
+	BLACKBERRY6(	Manufacturer.BLACKBERRY,OperatingSystem.BLACKBERRY, 6, "BlackBerry 6", new String[] { "Version/6" }, null, DeviceType.MOBILE, null ),		
 
+	BLACKBERRY10(	Manufacturer.BLACKBERRY,null, 108, "BlackBerry 10", new String[] { "BB10; Touch", "BB10; Kbd" }, null, DeviceType.MOBILE, null ),
 	BLACKBERRY_TABLET(Manufacturer.BLACKBERRY,null, 100, "BlackBerry Tablet OS", new String[] { "RIM Tablet OS" }, null, DeviceType.TABLET, null ),	
 	
 	ROKU(			Manufacturer.ROKU,null, 1, "Roku OS", new String[] { "Roku" }, null, DeviceType.DMR, null ),	
+
+	BREW(		Manufacturer.OTHER,null, 1, "BREW", new String[] { "BREW", "Brew MP" }, null, DeviceType.MOBILE, null ),	
+	CHROMIUM (Manufacturer.OTHER,null, 1, "Chromium", new String[] { "CrOS" }, null, DeviceType.MOBILE, null ),
 	UNKNOWN(		Manufacturer.OTHER,null, 1, "Unknown", new String[0], null, DeviceType.UNKNOWN, null );
 	
+		
 	private final short id;
 	private final String name;
 	private final String[] aliases;
@@ -345,5 +375,6 @@ public enum OperatingSystem {
 		throw new IllegalArgumentException(
 	            "No enum const for id " + id);
 	}
+		
 	
 }
