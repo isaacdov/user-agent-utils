@@ -71,6 +71,7 @@ public class UserAgent implements Serializable
 	private static final long serialVersionUID = 7025462762784240212L;
 	private OperatingSystem operatingSystem = OperatingSystem.UNKNOWN;
 	private Browser browser = Browser.UNKNOWN;
+	private Language language = Language.UNKNOWN;
 	private int id;
 	private String userAgentString;
 		
@@ -86,13 +87,19 @@ public class UserAgent implements Serializable
 		Browser browser = Browser.parseUserAgentString(userAgentString);
 		
 		OperatingSystem operatingSystem = OperatingSystem.UNKNOWN;
+		Language language = Language.UNKNOWN;
 		
 		// BOTs don't have an interesting OS for us
 		if (browser != Browser.BOT)
 			operatingSystem = OperatingSystem.parseUserAgentString(userAgentString);
 		
+		// BOTs don't have an interesting OS for us
+		if (browser != Browser.BOT)
+			language = language.parseUserAgentString(userAgentString);
+		
 		this.operatingSystem = operatingSystem;
 		this.browser = browser;
+		this.language = language;
 		this.id = (( operatingSystem.getId() << 16) + browser.getId());
 		this.userAgentString = userAgentString;
 	}
@@ -129,6 +136,14 @@ public class UserAgent implements Serializable
 	 */
 	public Browser getBrowser() {
 		return browser;
+	}
+	
+	
+	/**
+	 * @return the language
+	 */
+	public Language getLanguage() {
+		return language;
 	}
 
 	/**
@@ -223,3 +238,5 @@ public class UserAgent implements Serializable
 	}	
 	
 }
+
+ 
